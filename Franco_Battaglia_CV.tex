@@ -1,0 +1,121 @@
+%========================================================================
+%  Franco Battaglia — Senior Software Engineer CV
+%  Single-column, ATS-friendly (real selectable text, no layout tables,
+%  no multi-column, no image/glyph icons). Compile with: pdflatex (x2).
+%========================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{XCharter}                 % clean professional serif
+\usepackage{microtype}
+\usepackage[a4paper,top=1.1cm,bottom=1.0cm,left=1.7cm,right=1.7cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{1F3A5F}    % restrained navy
+\definecolor{muted}{HTML}{555555}
+
+% ---- Section headers: small-caps, accent, thin rule -------------------
+\titleformat{\section}
+  {\large\bfseries\scshape\color{accent}}{}{0em}{}[{\color{accent!40}\titlerule[0.8pt]}]
+\titlespacing*{\section}{0pt}{5pt}{3pt}
+
+% ---- Compact bullet lists ---------------------------------------------
+\setlist[itemize]{leftmargin=1.25em,itemsep=1pt,topsep=1.5pt,parsep=0pt,label=\textcolor{accent}{\small$\bullet$}}
+
+% ---- Job entry: {Role}{Company}{Descriptor}{Dates} --------------------
+\newcommand{\job}[4]{%
+  \vspace{2pt}\noindent{\bfseries #1}\, \textnormal{— #2}\hfill{\normalfont #4}\\[1pt]%
+  {\small\itshape\color{muted} #3}\par\vspace{1pt}%
+}
+
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\begin{document}
+
+%------------------------------- HEADER --------------------------------
+\begin{center}
+  {\Huge\bfseries Franco Battaglia}\\[3pt]
+  {\large\color{accent}Senior Software Engineer — Backend \& Distributed Systems}\\[4pt]
+  {\small
+    Buenos Aires, Argentina \quad\textbullet\quad
+    \href{mailto:francobatta@outlook.com}{francobatta@outlook.com} \quad\textbullet\quad
+    \href{mailto:francovatta@gmail.com}{francovatta@gmail.com}\\[2pt]
+    \href{https://linkedin.com/in/francobatta}{linkedin.com/in/francobatta} \quad\textbullet\quad
+    \href{https://github.com/francobatta}{github.com/francobatta}
+  }
+\end{center}
+\vspace{2pt}
+
+%------------------------------- SUMMARY -------------------------------
+\section{Summary}
+Senior backend engineer with 6+ years designing and scaling distributed systems across
+fintech and online travel. Deep in the JVM ecosystem (Scala, Kotlin, Java) and Go, with a
+track record of owning features end-to-end and leading large-scale service rewrites.
+Pragmatic about tooling; relentless on reliability, low latency, and lean footprint. Fluent
+English, effective in async, remote teams.
+
+%------------------------------- SKILLS --------------------------------
+\section{Core Skills}
+\textbf{Languages:} Scala, Kotlin, Java, Go, TypeScript, JavaScript\\
+\textbf{Backend:} Microservices, REST, messaging (JMS), systems design \& architecture\\
+\textbf{Data:} PostgreSQL, MongoDB, Redis, DynamoDB\\
+\textbf{Infrastructure:} AWS, EKS, Docker, Terraform\\
+\textbf{Observability:} Datadog, New Relic, Prometheus, Grafana\\
+\textbf{Practices:} Functional programming (cats, ZIO), JVM tuning \& profiling, RDBMS optimization\\
+\textbf{AI-assisted dev:} Spec-driven development (SDD), MCP tools, CLI-first agentic coding, AI code review
+
+%----------------------------- EXPERIENCE ------------------------------
+\section{Experience}
+
+\job{Senior Software Engineer}{Clip}{Remote \textbullet\ payments / fintech (Mexico)}{Jul 2024 – Present}
+\begin{itemize}
+  \item Design, build, and own distributed microservices for a high-volume payments
+        platform end-to-end — from design through production, rollout, and monitoring.
+  \item Migrated Java and Kotlin services to Go, reducing resource footprint and startup time.
+  \item Drive platform reliability with observability, sane timeouts, and graceful
+        degradation; favor battle-tested tooling over incidental complexity.
+\end{itemize}
+
+\job{Senior Engineer II}{Despegar}{Online travel \textbullet\ promoted twice, from Semi-Senior to Senior Engineer II}{Oct 2021 – Jul 2024}
+\begin{itemize}
+  \item Owned the hotels stack serving \textbf{150K requests/min}, responsible for its
+        design, performance, and reliability at scale.
+  \item Led full rewrites migrating core services from legacy JVM (Java 8) to Scala, and
+        from JMS messaging to HTTP.
+  \item Tuned the JVM (GC, args, profiling) and optimized RDBMS access; built asynchronous,
+        purely functional Scala services with cats and ZIO.
+  \item Hardened reliability with observability, timeouts, graceful degradation, and
+        right-sized service capacity.
+\end{itemize}
+
+\job{Software Engineer}{Producteca}{E-commerce \& marketplace integrations}{Oct 2020 – Oct 2021}
+\begin{itemize}
+  \item Built microservices and web services powering e-commerce and marketplace
+        integrations, delivering features end-to-end with clean, maintainable design.
+  \item Awarded the team's 2021 ``Most Story Points'' recognition for delivery throughput.
+\end{itemize}
+
+%--------------------------- TEACHING ----------------------------------
+\section{Teaching \& Mentoring}
+\begin{itemize}
+  \item \textbf{Teaching Assistant — Universidad Tecnológica Nacional (UTN), TACS}
+        (2021 – Present): grade student coursework and assist instruction on REST APIs,
+        Docker, microservices, and infrastructure.
+  \item \textbf{Bootcamp Lecturer — Despegar}: designed and delivered training to a bootcamp
+        of \textbf{30+ junior developers}.
+\end{itemize}
+
+%---------------------------- EDUCATION --------------------------------
+\section{Education}
+\job{Systems Engineering}{Universidad Tecnológica Nacional (UTN)}{Ingeniería en Sistemas de Información \textbullet\ GPA 8.4/10 \textbullet\ Buenos Aires, Argentina}{2016 – 2021}
+
+%---------------------------- LANGUAGES --------------------------------
+\section{Languages}
+Spanish (native) \quad\textbullet\quad English (professional working proficiency)
+
+\end{document}
